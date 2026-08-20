@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsup && tsc --emitDeclarationOnly",
     "lint": "eslint src/",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
