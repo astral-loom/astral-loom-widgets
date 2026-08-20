@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
     "jsx": "react-jsx"
   },
   "include": ["src/**/*"],
