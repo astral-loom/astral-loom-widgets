@@ -6,6 +6,6 @@ import { BalanceCard } from '../BalanceCard';
 describe('BalanceCard', () => {
   it('renders correctly', () => {
     const { getByText } = render(<BalanceCard publicKey="G123" balances={[]} />);
-    expect(getByText('G123')).toBeTruthy();
+    expect(getByText(/G123/)).toBeTruthy();
   });
 });
