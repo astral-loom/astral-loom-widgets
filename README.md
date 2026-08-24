@@ -19,6 +19,56 @@ Developed with modern frontend practices:
 - Explorable via Storybook.
 - Drop-in UI for components like the `<BalanceCard />`.
 
+### 🌍 Ecosystem Architecture
+
+`astral-loom-widgets` is the UI component layer of the Astral Loom ecosystem.
+
+```mermaid
+flowchart TD
+    %% Base Layer
+    Stellar[Stellar Network]
+    Horizon[Horizon API]
+    Soroban[Soroban RPC]
+    
+    Stellar --- Horizon
+    Stellar --- Soroban
+    
+    %% Official SDK
+    SDK((@stellar/stellar-sdk))
+    Horizon --> SDK
+    Soroban --> SDK
+
+    %% Astral Loom Layer
+    subgraph Astral Loom Ecosystem
+        Kit[astral-loom-kit<br/>Core TypeScript SDK]
+        CLI[astral-loom-cli<br/>CLI Tooling]
+        Widgets[astral-loom-widgets<br/>React UI Components]
+    end
+
+    SDK --> Kit
+    
+    %% Dependencies within the ecosystem
+    Kit --> CLI
+    Kit --> Widgets
+
+    %% Wallets
+    Wallets[Wallet Extensions<br/>Freighter, Albedo, xBull]
+    Wallets -.->|WalletAdapter| Kit
+
+    %% End Users
+    Backend[Backend / dApp Devs] --> Kit
+    Ops[DevOps / Power Users] --> CLI
+    Frontend[Frontend / React Devs] --> Widgets
+    
+    classDef official fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
+    classDef loom fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    classDef users fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
+    
+    class SDK official
+    class Kit,CLI,Widgets loom
+    class Backend,Ops,Frontend users
+```
+
 ---
 
 ## 🚀 Quick Start
