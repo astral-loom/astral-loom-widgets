@@ -54,7 +54,15 @@ function App() {
 
 ---
 
+## 💡 Examples
+
+Check out the [examples/demo-app/](examples/demo-app/) directory for a complete Vite + React demo application showcasing the `<BalanceCard />` component in action.
+
+---
+
 ## 🤝 Community & Maintainers
+
+We are committed to fostering a welcoming environment. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating. If you discover a vulnerability, please review our [Security Policy](SECURITY.md) for reporting instructions.
 
 Join the discussion and get support:
 * **Community Link**: [Stellar Developer Discord](https://discord.gg/5aprtMSyR)
