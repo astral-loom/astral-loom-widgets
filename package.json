@@ -9,7 +9,9 @@
     "build": "tsup && tsc --emitDeclarationOnly",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "test": "vitest run"
+    "test": "vitest run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +34,17 @@
     "tsup": "^8.5.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.67.0",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "storybook": "^10.5.10",
+    "@storybook/react-vite": "^10.5.10",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-vitest": "^10.5.10",
+    "@storybook/addon-a11y": "^10.5.10",
+    "@storybook/addon-docs": "^10.5.10",
+    "@storybook/addon-mcp": "latest",
+    "eslint-plugin-storybook": "^10.5.10",
+    "@vitest/browser-playwright": "4.1.11",
+    "@vitest/coverage-v8": "4.1.11",
+    "playwright": "latest"
   }
 }
