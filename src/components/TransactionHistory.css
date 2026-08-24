@@ -1,0 +1,71 @@
+.loom-tx-history {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.loom-tx-history h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.loom-tx-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.loom-tx-table th, .loom-tx-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.loom-tx-table th {
+  font-weight: 600;
+  color: #666;
+  background-color: #f9f9f9;
+}
+
+.loom-tx-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.loom-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+  background: #eee;
+  color: #333;
+}
+
+.loom-badge-receive, .loom-badge-account-created {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.loom-badge-send {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.loom-text-success {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.loom-loading, .loom-empty, .loom-error {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.loom-error {
+  color: #c62828;
+}
