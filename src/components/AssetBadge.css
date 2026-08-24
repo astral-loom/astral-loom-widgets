@@ -1,0 +1,71 @@
+.loom-asset-badge {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.loom-asset-badge:hover {
+  background: #fcfcfc;
+  border-color: #d0d0d0;
+}
+
+.loom-asset-icon {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.loom-asset-icon-fallback {
+  border-radius: 50%;
+  background: #6200ea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.loom-asset-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+  line-height: 1.1;
+}
+
+.loom-asset-code {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.loom-asset-issuer {
+  color: #666;
+}
+
+/* Sizes */
+.loom-asset-badge-sm .loom-asset-icon,
+.loom-asset-badge-sm .loom-asset-icon-fallback {
+  width: 20px;
+  height: 20px;
+}
+.loom-asset-badge-sm .loom-asset-code { font-size: 0.75rem; }
+.loom-asset-badge-sm .loom-asset-issuer { font-size: 0.65rem; }
+
+.loom-asset-badge-md .loom-asset-icon,
+.loom-asset-badge-md .loom-asset-icon-fallback {
+  width: 28px;
+  height: 28px;
+}
+.loom-asset-badge-md .loom-asset-code { font-size: 0.875rem; }
+.loom-asset-badge-md .loom-asset-issuer { font-size: 0.7rem; }
+
+.loom-asset-badge-lg .loom-asset-icon,
+.loom-asset-badge-lg .loom-asset-icon-fallback {
+  width: 40px;
+  height: 40px;
+}
+.loom-asset-badge-lg .loom-asset-code { font-size: 1.125rem; }
+.loom-asset-badge-lg .loom-asset-issuer { font-size: 0.85rem; }

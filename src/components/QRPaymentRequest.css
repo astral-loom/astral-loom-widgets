@@ -1,0 +1,54 @@
+.loom-qr-request {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+}
+
+.loom-qr-container {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px #eee;
+  margin-bottom: 1.5rem;
+}
+
+.loom-qr-details {
+  width: 100%;
+}
+
+.loom-qr-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.loom-qr-dest-label, .loom-qr-memo-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.loom-qr-memo-label {
+  margin-top: 0.75rem;
+}
+
+.loom-qr-dest-value, .loom-qr-memo-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  color: #333;
+  background: #f5f5f5;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  word-break: break-all;
+}
