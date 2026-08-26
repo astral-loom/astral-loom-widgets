@@ -2,8 +2,9 @@
   <h1>🧩 Astral Loom Widgets</h1>
   <p><strong>Embeddable React components for Stellar dApp frontend development.</strong></p>
   
-  [![Build Status](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml/badge.svg)](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml)
-  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![npm version](https://img.shields.io/npm/v/astral-loom-widgets.svg)](https://www.npmjs.com/package/astral-loom-widgets)
+  [![CI](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml/badge.svg)](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
 
 ---
