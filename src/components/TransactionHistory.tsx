@@ -31,7 +31,7 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let isMounted = true;
+    const isMounted = true;
     
     const fetchHistory = async () => {
       try {
@@ -50,7 +50,20 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
           .call();
 
         if (isMounted) {
-          const processed = operations.records.map((op: any) => {
+          const processed = operations.records.map((op: {
+            id: string;
+            created_at: string;
+            type: string;
+            source_account: string;
+            to?: string;
+            from?: string;
+            amount?: string;
+            asset_type?: string;
+            asset_code?: string;
+            starting_balance?: string;
+            funder?: string;
+            account?: string;
+          }) => {
             const date = new Date(op.created_at).toLocaleDateString(undefined, {
               year: 'numeric', month: 'short', day: 'numeric',
               hour: '2-digit', minute: '2-digit'
@@ -64,16 +77,16 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 
             if (op.type === 'payment' || op.type === 'path_payment_strict_receive' || op.type === 'path_payment_strict_send') {
               type = op.to === publicKey ? 'Receive' : 'Send';
-              amount = op.amount;
-              asset = op.asset_type === 'native' ? 'XLM' : op.asset_code;
-              from = op.from;
-              to = op.to;
+              amount = op.amount ?? '-';
+              asset = op.asset_type === 'native' ? 'XLM' : (op.asset_code ?? '-');
+              from = op.from ?? op.source_account;
+              to = op.to ?? '-';
             } else if (op.type === 'create_account') {
               type = 'Account Created';
-              amount = op.starting_balance;
+              amount = op.starting_balance ?? '-';
               asset = 'XLM';
-              from = op.funder;
-              to = op.account;
+              from = op.funder ?? op.source_account;
+              to = op.account ?? '-';
             }
 
             return {
@@ -90,10 +103,10 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
           setPayments(processed);
           setError(null);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         if (isMounted) {
           console.error(err);
-          setError(err.message || 'Failed to fetch transaction history');
+          setError(err instanceof Error ? err.message : 'Failed to fetch transaction history');
         }
       } finally {
         if (isMounted) {
