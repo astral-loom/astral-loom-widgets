@@ -4,7 +4,7 @@ A minimal Vite + React app demonstrating how to import and use the `<BalanceCard
 
 The demo renders a `<BalanceCard />` with a real Stellar testnet public key, pulling live balance data from the Stellar Horizon API.
 
-Live demo: [URL will go here]
+Live demo: https://astral-loom-widgets.vercel.app
 
 ## How to run locally
 
