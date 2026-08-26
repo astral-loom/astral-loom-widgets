@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "astral-loom-widgets": "file:../.."
+    "astral-loom-widgets": "^0.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

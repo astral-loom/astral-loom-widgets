@@ -1,16 +1,16 @@
 # Astral Loom Widgets Demo
 
-This is a minimal Vite + React app demonstrating how to import and use the `<BalanceCard />` component from `astral-loom-widgets`.
+A minimal Vite + React app demonstrating how to import and use the `<BalanceCard />` component from the published [`astral-loom-widgets`](https://www.npmjs.com/package/astral-loom-widgets) npm package.
 
-## How to run
+The demo renders a `<BalanceCard />` with a real Stellar testnet public key, pulling live balance data from the Stellar Horizon API.
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the dev server:
-   ```bash
-   npm run dev
-   ```
+Live demo: [URL will go here]
 
-*(Placeholder for screenshot: Add real screenshot after running locally)*
+## How to run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173) in your browser.

@@ -6,7 +6,11 @@ function App() {
       <h1>Astral Loom Widgets Demo</h1>
       <BalanceCard 
         publicKey="GDQJGCOVVSEIB2OCSL3J4TCMZKQM2YMO24XVDJFGJ22IGZSCBWYAGHGD" 
-        network="testnet" 
+        network="testnet"
+        balances={[
+          { assetCode: 'XLM', balance: '100.00' },
+          { assetCode: 'USDC', balance: '50.00' }
+        ]}
       />
     </div>
   )
