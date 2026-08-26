@@ -1,7 +1,7 @@
 {
   "name": "astral-loom-widgets",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Embeddable UI components for Stellar data.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -13,9 +13,17 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "stellar",
+    "typescript",
+    "sdk",
+    "blockchain"
+  ],
+  "author": "Temmy2026",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "@stellar/stellar-sdk": "^16.2.0",
     "qrcode.react": "^4.2.0",
@@ -47,5 +55,15 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.67.0",
     "vitest": "^4.1.11"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astral-loom/astral-loom-widgets.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
