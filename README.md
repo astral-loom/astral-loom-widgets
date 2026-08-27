@@ -111,6 +111,8 @@ function App() {
 
 Check out the [examples/demo-app/](examples/demo-app/) directory for a complete Vite + React demo application showcasing the `<BalanceCard />` component in action.
 
+See [site/](site/) for the project landing page.
+
 ---
 
 ## 🤝 Community & Maintainers
