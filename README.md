@@ -11,6 +11,12 @@
   🌐 Website: https://astral-loom-site.vercel.app
 </div>
 
+## Demo
+
+![astral-loom-widgets demo](./demo.png)
+
+(A live interactive demo is also available: [https://astral-loom-widgets.vercel.app](https://astral-loom-widgets.vercel.app))
+
 ---
 
 ## 📖 Overview
