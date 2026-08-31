@@ -8,4 +8,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   external: ['react', 'react-dom'],
+  exclude: ['src/stories/**', 'src/**/__tests__/**', '**/*.test.*', '**/*.stories.*'],
 });
