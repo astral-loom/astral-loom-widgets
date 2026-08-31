@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial release
-- `<BalanceCard />` React component for displaying Stellar account balances natively
+- React components for Stellar dApp frontends (`<BalanceCard />`, `<AssetBadge />`, `<QRPaymentRequest />`, `<TransactionHistory />`)
 - Built-in TypeScript support and seamless React integration
-- Ready-to-use drop-in UI component that accepts Stellar `network` and `balances` data
+- Ready-to-use drop-in UI components that accept Stellar `network` and data props
 - Storybook integration setup for component exploration and documentation
