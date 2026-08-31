@@ -52,7 +52,7 @@
     "prettier": "^3.9.6",
     "storybook": "^10.5.10",
     "tsup": "^8.5.1",
-    "typescript": "^5.5.4",
+    "typescript": "^7.0.2",
     "typescript-eslint": "^8.67.0",
     "vitest": "^4.1.11"
   },
