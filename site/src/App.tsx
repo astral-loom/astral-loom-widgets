@@ -14,6 +14,9 @@ function Nav() {
           <a href="#toolkit">Kit</a>
           <a href="#toolkit">CLI</a>
           <a href="#toolkit">Widgets</a>
+          <a href="https://t.me/+G91vPNmPa-diM2U8" target="_blank" rel="noreferrer">
+            Community
+          </a>
           <a href={REPO} target="_blank" rel="noreferrer">
             GitHub
           </a>
@@ -315,6 +318,9 @@ function Footer() {
           <span className="footer-tagline"> — Built for the Stellar ecosystem</span>
         </div>
         <div className="footer-links">
+          <a href="https://t.me/+G91vPNmPa-diM2U8" target="_blank" rel="noreferrer">
+            Community
+          </a>
           <a href={REPO} target="_blank" rel="noreferrer">
             GitHub
           </a>
