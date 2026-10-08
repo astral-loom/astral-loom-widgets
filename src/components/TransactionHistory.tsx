@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Horizon } from '@stellar/stellar-sdk';
+import { NETWORK_PRESETS, NetworkName } from '../network';
 import './TransactionHistory.css';
 
 export interface TransactionHistoryProps {
   /** The Stellar public key to fetch transactions for */
   publicKey: string;
   /** The network to query */
-  network?: 'testnet' | 'mainnet';
+  network?: NetworkName;
+  /** Optional custom Horizon URL, overrides the network preset */
+  horizonUrl?: string;
   /** Number of transactions to fetch (default 10) */
   limit?: number;
 }
@@ -24,6 +27,7 @@ interface ProcessedPayment {
 export const TransactionHistory: React.FC<TransactionHistoryProps> = ({ 
   publicKey, 
   network = 'testnet',
+  horizonUrl,
   limit = 10 
 }) => {
   const [payments, setPayments] = useState<ProcessedPayment[]>([]);
@@ -36,11 +40,9 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
     const fetchHistory = async () => {
       try {
         setLoading(true);
-        const serverUrl = network === 'mainnet' 
-          ? 'https://horizon.stellar.org' 
-          : 'https://horizon-testnet.stellar.org';
-          
-        const server = new Horizon.Server(serverUrl);
+        const server = new Horizon.Server(
+          horizonUrl || NETWORK_PRESETS[network].horizonUrl
+        );
         
         // Fetch operations instead of raw transactions to easily see payments/transfers
         const operations = await server.operations()
@@ -118,7 +120,7 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
     if (publicKey) {
       fetchHistory();
     }
-  }, [publicKey, network, limit]);
+  }, [publicKey, network, horizonUrl, limit]);
 
   if (!publicKey) {
     return <div className="loom-tx-history loom-empty">No public key provided</div>;
@@ -149,7 +151,7 @@ export const TransactionHistory: React.FC<TransactionHistoryProps> = ({
           </thead>
           <tbody>
             {payments.map(payment => (
-              <tr key={payment.id}>
+              <tr key={payment.id} data-testid="tx-row">
                 <td>{payment.date}</td>
                 <td>
                   <span className={`loom-badge loom-badge-${payment.type.toLowerCase().replace(' ', '-')}`}>
