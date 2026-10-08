@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { rpc, Contract, Account, nativeToScVal, TransactionBuilder } from '@stellar/stellar-sdk';
+import { NETWORK_PRESETS, NetworkName, SIMULATION_SOURCE_ACCOUNT } from '../network';
 import './SorobanContractUI.css';
 
 export interface SorobanContractUIProps {
   contractId: string;
-  network?: 'testnet' | 'mainnet' | 'futurenet';
+  network?: NetworkName;
   rpcUrl?: string;
 }
 
@@ -25,14 +26,8 @@ export const SorobanContractUI: React.FC<SorobanContractUIProps> = ({
     setResult(null);
 
     try {
-      let url = rpcUrl;
-      if (!url) {
-        if (network === 'mainnet') url = 'https://soroban-rpc.mainnet.stellar.org';
-        else if (network === 'testnet') url = 'https://soroban-rpc.testnet.stellar.org';
-        else url = 'https://rpc-futurenet.stellar.org';
-      }
-
-      const server = new rpc.Server(url);
+      const preset = NETWORK_PRESETS[network];
+      const server = new rpc.Server(rpcUrl ?? preset.rpcUrl);
       
       let parsedArgs: unknown[] = [];
       if (argsStr.trim()) {
@@ -46,11 +41,10 @@ export const SorobanContractUI: React.FC<SorobanContractUIProps> = ({
       const scValArgs = parsedArgs.map(arg => nativeToScVal(arg));
       const contract = new Contract(contractId);
       
-      // Create a dummy account to build the transaction for simulation
-      const account = new Account('GA6L7D63QJYYZBYCDBYQYJ4XN2O4S7JFYR53UKN673F6N5B2F5C6Y47X', '0');
+      const account = new Account(SIMULATION_SOURCE_ACCOUNT, '0');
       const tx = new TransactionBuilder(account, {
         fee: '100',
-        networkPassphrase: 'Test SDF Network ; September 2015', // Simulation doesn't care much
+        networkPassphrase: preset.networkPassphrase,
       })
       .addOperation(contract.call(method, ...scValArgs))
       .setTimeout(30)

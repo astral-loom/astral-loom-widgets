@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Horizon } from '@stellar/stellar-sdk';
+import { NETWORK_PRESETS, NetworkName } from '../network';
 
 export interface BalanceCardProps {
   publicKey: string;
-  network?: 'testnet' | 'mainnet' | 'futurenet';
+  network?: NetworkName;
   horizonUrl?: string; // Optional custom URL
   className?: string;
+}
+
+// SDK does not export Horizon.BalanceLine, so infer the element type from the
+// account response instead of falling back to Record<string, unknown>.
+type Balance = NonNullable<Horizon.AccountResponse['balances']>[number];
+
+// Liquidity pool balances report asset_code60 instead of asset_code.
+function assetLabel(balance: Balance): string {
+  if (balance.asset_type === 'native') return 'XLM';
+  if ('asset_code' in balance) return balance.asset_code;
+  return 'LP';
 }
 
 export const BalanceCard: React.FC<BalanceCardProps> = ({
@@ -14,7 +26,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
   horizonUrl,
   className = '',
 }) => {
-  const [balances, setBalances] = useState<Record<string, unknown>[]>([]);
+  const [balances, setBalances] = useState<Balance[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,12 +38,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
       setError(null);
       
       try {
-        let url = horizonUrl;
-        if (!url) {
-          if (network === 'mainnet') url = 'https://horizon.stellar.org';
-          else if (network === 'testnet') url = 'https://horizon-testnet.stellar.org';
-          else url = 'https://horizon-futurenet.stellar.org';
-        }
+        const url = horizonUrl || NETWORK_PRESETS[network].horizonUrl;
         
         const server = new Horizon.Server(url);
         const account = await server.accounts().accountId(publicKey).call();
@@ -41,7 +48,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
         }
       } catch (err: unknown) {
         if (isMounted) {
-          const errorMsg = (err as any)?.response?.data?.detail || (err as Error)?.message || 'Failed to fetch balances';
+          const errorMsg = err instanceof Error ? err.message : 'Failed to fetch balances';
           setError(errorMsg);
         }
       } finally {
@@ -106,7 +113,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
       {!loading && !error && balances.length > 0 && (
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {balances.map((b, i) => {
-            const assetCode = b.asset_type === 'native' ? 'XLM' : b.asset_code;
+            const assetCode = assetLabel(b);
             return (
               <li
                 key={i}
