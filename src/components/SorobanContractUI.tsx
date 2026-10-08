@@ -47,7 +47,7 @@ export const SorobanContractUI: React.FC<SorobanContractUIProps> = ({
       const contract = new Contract(contractId);
       
       // Create a dummy account to build the transaction for simulation
-      const account = new Account('GA6L7D63QJYYZBYCDBYQYJ4XN2O4S7JFYR53UKN673F6N5B2F5C6Y47X', '0');
+      const account = new Account('GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5', '0');
       const tx = new TransactionBuilder(account, {
         fee: '100',
         networkPassphrase: 'Test SDF Network ; September 2015', // Simulation doesn't care much
