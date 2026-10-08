@@ -1,5 +1,6 @@
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
+import { StrKey } from '@stellar/stellar-sdk';
 import './QRPaymentRequest.css';
 
 export interface QRPaymentRequestProps {
@@ -15,6 +16,11 @@ export interface QRPaymentRequestProps {
   size?: number;
 }
 
+/**
+ * QRPaymentRequest component renders a SEP-0007 compliant payment request QR code.
+ * Validates that `destination` is a valid Stellar public key (Ed25519) before generating the QR code.
+ * If the destination is invalid or empty, displays an error message and does not render the QR code.
+ */
 export const QRPaymentRequest: React.FC<QRPaymentRequestProps> = ({
   destination,
   amount,
@@ -22,6 +28,18 @@ export const QRPaymentRequest: React.FC<QRPaymentRequestProps> = ({
   memo,
   size = 200,
 }) => {
+  const isValidDestination = StrKey.isValidEd25519PublicKey(destination);
+
+  if (!isValidDestination) {
+    return (
+      <div className="loom-qr-request">
+        <div className="loom-qr-error" role="alert">
+          Invalid Stellar address
+        </div>
+      </div>
+    );
+  }
+
   // Generate a standard SEP-0007 URI
   // URI format: web+stellar:pay?destination=ACCOUNT_ID&amount=120.12&memo=skus&asset_code=USD&asset_issuer=ACCOUNT_ID
   

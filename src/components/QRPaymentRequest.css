@@ -52,3 +52,13 @@
   border-radius: 6px;
   word-break: break-all;
 }
+
+.loom-qr-error {
+  color: #c53030;
+  background-color: #fed7d7;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 100%;
+}
