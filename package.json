@@ -31,11 +31,11 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "latest",
+    "@chromatic-com/storybook": "^5.4.0",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.5.10",
     "@storybook/addon-docs": "^10.5.10",
-    "@storybook/addon-mcp": "latest",
+    "@storybook/addon-mcp": "^10.6.1",
     "@storybook/addon-vitest": "^10.5.10",
     "@storybook/react-vite": "^10.5.10",
     "@testing-library/dom": "^10.4.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-storybook": "^10.5.10",
     "happy-dom": "^20.11.6",
     "jsdom": "^30.0.1",
-    "playwright": "latest",
+    "playwright": "^1.64.0",
     "prettier": "^3.9.6",
     "storybook": "^10.5.10",
     "tsup": "^8.5.1",
