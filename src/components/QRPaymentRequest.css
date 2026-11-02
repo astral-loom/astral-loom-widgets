@@ -52,3 +52,21 @@
   border-radius: 6px;
   word-break: break-all;
 }
+
+.loom-qr-request--error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+  gap: 0.5rem;
+}
+
+.loom-qr-error-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.loom-qr-error-message {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
