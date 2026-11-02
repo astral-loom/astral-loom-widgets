@@ -5,6 +5,8 @@
   [![npm version](https://img.shields.io/npm/v/astral-loom-widgets.svg)](https://www.npmjs.com/package/astral-loom-widgets)
   [![bundle size](https://img.shields.io/bundlephobia/minzip/astral-loom-widgets)](https://bundlephobia.com/package/astral-loom-widgets)
   [![CI](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml/badge.svg)](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml)
+  [![CodeQL](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/codeql.yml/badge.svg)](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/codeql.yml)
+  [![Security Scan](https://img.shields.io/badge/Security-ClamAV%20%7C%20Trivy-brightgreen)](https://github.com/astral-loom/astral-loom-widgets/actions/workflows/ci.yml)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Telegram](https://img.shields.io/badge/Telegram-Join%20Chat-2CA5E0?logo=telegram&logoColor=white)](https://t.me/+G91vPNmPa-diM2U8)
   
@@ -99,7 +101,13 @@ npm install astral-loom-widgets react react-dom @stellar/stellar-sdk
 Import and use the pre-built components directly in your app:
 
 ```tsx
-import { BalanceCard, SorobanContractUI } from 'astral-loom-widgets';
+import { 
+  BalanceCard, 
+  SorobanContractUI, 
+  TransactionHistory, 
+  AssetBadge, 
+  QRPaymentRequest 
+} from 'astral-loom-widgets';
 
 function App() {
   return (
@@ -109,8 +117,25 @@ function App() {
         publicKey="GA...YOUR_ACCOUNT"
         network="testnet"
       />
+
+      {/* Renders live transaction history with pagination from Horizon */}
+      <TransactionHistory 
+        publicKey="GA...YOUR_ACCOUNT" 
+        network="testnet" 
+        limit={10} 
+      />
+
+      {/* Display asset badge for native or issued Stellar asset */}
+      <AssetBadge assetCode="XLM" size="md" />
+
+      {/* Generate SEP-0007 compliant payment request QR code */}
+      <QRPaymentRequest 
+        destination="GBXWCJVZR57RNIROBIIJHN433XDZUJVG7JW2ASZIUILTLBRG5BZQRP4Q" 
+        amount="25.50" 
+        assetCode="XLM" 
+      />
       
-      {/* NEW! A fully interactive UI for simulating Soroban smart contracts */}
+      {/* Interactive UI for simulating Soroban smart contracts */}
       <SorobanContractUI 
         contractId="C..."
         network="testnet"
